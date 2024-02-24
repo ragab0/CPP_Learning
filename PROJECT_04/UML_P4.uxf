@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>306</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+Package::FatClass
+{Some Properties}
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>963</x>
+      <y>180</y>
+      <w>189</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;User&gt;&gt;
+--
+-id: int
+-type: int
+-password; int
+-username: string
+-full_name: string
+-email: string
+
+--
++GetType(): int
++GetDetails(): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
