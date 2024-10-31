@@ -489,70 +489,98 @@ the Static, Global and Local:
 ===================================================================
 ======================== 2 Basics subset 2  =======================
 ===================================================================
-@REM this pig has a big hot mug;
+@REM this pig has a big hot mug (zAmericanEnglish);
 
 =====================
 ===== 14 Struct ===== (Look at subset3: OOP);
 =====================
+>> it is simply a way to  gather together a set of variables/features/methods or data members and actions together in one place;
+&& it is defined as a data type - as struct - the way we define it;
+&& its output/result/creation are the instances/objects of it - the way we use it;
+
+
 
 the constructor method:
 -----------------------
->> it is a method that doesn't return && its name is the same name as its class;
-&& it is a way to initialize an object from the begin when we instanciate an instance/obj from it;
-&& it is called automatically when we "declare" a new instance;
+>> it is a method without a return type && its name is the same name as its struct/class;
+&& it is called only & automatically when we "declare" a new instance;
+>> it is a way to initialize an object from the begin when we instanciate an instance/obj from it;
 && it is a method like any method that accepts the "overloading":
 	.. "if we instanciate an object without initialize it .. it will initialized with the empty constructor - Fn3";
 	.. "BEcarful: better to use the empty one becuase we may face problems with the params - OOP we'll learn about";
 
 
-
-the "initialization"  in C++:
-=============================
-== before C++11 we have to use different types of initialization for different cases !!;
-&& there is nowdays more than 19 ways to initialize an int !!;
+=========================================
+===== the "initialization"  in C++  =====
+=========================================
+initialization of a variable provides its initial value at the time of construction.
+>> before C++11 we have to use different types of initialization for different cases !!;
+>> so there was more than 19 ways to initialize an int !!;
 
 
 the "uniform"/"list" initialization:
 ------------------------------------
->> it is come to "uniform" the initialization since the version of C++11 which RESCUED US;
+>> it is come in C++11 to "uniform" the initialization;
 && it is sometime more "safer" like warning us on "narrowing conversion";
 && it is the "only way" to solve a problem like in templates;
-&& it is eaither a ["copy" || "direct"] initialization;
+&& it is eaither a ["copy" || "direct" || "value", "default"] initialization;
 
 
 
-1 the copy initialization types:
---------------------------------
->> it is when we use an assignment;
-
-01 the "copy" initialization:
-	## double copy_init = a_value;
-		>> "the value will be created then will be copied to the LHS ==> NOT eficient";
-	## int narrowing = copy_init;
-		>> "the value will be converted from double to int without warning us -- NOT secure unlike the uni_init (CW/CE)";
-02 the "copy list" initialization:
-	## int copy_list = {1};
+000 the default initialization
+------------------------------
+01 it is a garbage with primitives:
+	## int a;
+02 it calling the "default constructor" with objects:
+	## string s;
 
 
 
-2 the direct initialization types:
+111 the copy initialization types:
 ----------------------------------
->> it is when we don't use an assignment (direct pass a value):
+>> it is when we use the assignment "=";
+&& it is either "the old copy" or "the copy list";
+&& the value of RHS will be created first then it will be copied to the LHS which is "NOT eficient";
 
-01 the "dirict constructor" initialization:
-	## int dire_init (a_value);
+01 the "old copy" which is "NOT secure":
+	## double copy_init = a_value;
+	## int narrowing = copy_init "the value will be converted from double to int without warning us";
+02 the "copy list" initialization - "MORE secure":
+	## int copy_list = {1};
+	!! int copy_list = {1.1};
+
+
+
+222 the direct initialization types:
+------------------------------------
+>> it is when we don't use an assignment "!=" - direct pass a value (WITH actuall value xD);
+
+01 the old "dirict constructor" initialization:
+	## int dire_init (an_actuall_value);
 02 the "direct list" initialization:
-	## int dire_list_init {a_value};
-	// the uniform came to pass direct too BUT there is aslo some differences too :D;
-	.. "{} no init then the default init => 0 for primitives || calling constructor for struct";
-	.. "() no init then the default init => CError for primitives || calling constructor for temprory object(no-names)";
-	.. "ITS good efficient with primitives and not good with heavy objects BEcarful !!";
+	## int dire_list_init {an_actuall_value};
 
+
+
+333 the value initialization types:
+-----------------------------------
+>> it is when we use a "direct initialdization type BUT without an actuall value";
+
+01 the old "dirict constructor () with no value":
+	01 with primitive types "NOT WORK - as we actually declare a function":
+		!!  int y1();
+	02 with objects "NOT WORK";
+	03 with temp objects - calling constructor: ## Employee();
+02 the "direct list {} with no value":
+	01 with primitives inits with 0;
+		##  int y1 {} ==> 0;
+	02 with objects: 
+	03 with temp objects - calling constructor: 
+		## Employee();
+		## Employee e{};
 
 
 -- the aggregation initialization in struct (" The Has A relation ");
--- the value initialization;
--- the default initialization;
 -- the zero initialization;
 
 
