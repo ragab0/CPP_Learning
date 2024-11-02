@@ -1,31 +1,49 @@
-===== Configuring the compiler =====
-We can select a specific compiler 
-	in Eclipse by adding at C/C++ Build(Settings(Miscellaneous)):
-	in Codeblocks by adding at Menu(GCSettings(Selecting GNU GCC Compiler and then (Toolchain Executable(C++ Cimpiler))))
-	--std=c++11 For the version 11 of C++;
-	--std=c++14 For the version 14 of C++;
-	--std=c++17 For the version 17 of C++;
-Knowing the version of current compiler:
-	201703L for C++17;
-	201403L for C++14;
-	201103L for C++11;
-	199711L for C++98;
+@REM =======================================
+@REM ===== the compiler configurations =====
+@REM =======================================
+@REM >> there are many types of them that we can use: 
+@REM 	in Eclipse by adding at C/C++ Build(Settings(Miscellaneous)):
+@REM 	in Codeblocks by adding at Menu(GCSettings(Selecting GNU GCC Compiler and then (Toolchain Executable(C++ Cimpiler))))
+@REM 	--std=c++11 For the version 11 of C++;
+@REM 	--std=c++14 For the version 14 of C++;
+@REM 	--std=c++17 For the version 17 of C++;
+@REM >> knowing the version of current compiler:
+@REM 	201703L for C++17;
+@REM 	201403L for C++14;
+@REM 	201103L for C++11;
+@REM 	199711L for C++98;
 
 
-===== the C++ Program Life Cycle =====
-01 "Writting" the Code;
-02 "Compiling" it;
-03 IF there is no any "CError" then "Generatting" the Program;
-04 "Running" the Program - the Executable/ACTIVE file;
 
 
-===== the Error types && Warning =====
->> the return 0 tells the compiler we're done, there is no any error;
-01 the Compile error - when we violate the language syntax rules!
-02 the Run time error - when the syntax is good, but the program crashes due to error during running;
-	## the Dividing by zero;
-03 the Compiler warning is better to solve it even if it doesn't stop the compiler to build the exe;
-	## the Overflow warning;
+
+
+=======================================
+===== the C++ program LifeCycle  =====
+=======================================
+>> 01 "writting" the Code;
+>> 02 "compiling" it;
+>> 03 if there is no any "CError" issued by the compiler then "generatting" the program;
+>> 04 "running" the program - the executable/active file;
+		==> Run-time errors?
+
+
+
+=======================================
+===== the error types && warnings ===== && code erros;
+=======================================
+>> 01 the "compile error" - when we violate the language syntax rules!
+>> 02 the "run time error" - when the syntax is good, but the program crashes due to error during running;
+	!! the dividing by zero;
+>> 03 the "compile warning": 
+	>> it is better to solve it even if it doesn't stop the compiler to build the exe;
+	## the overflow warning;
+
+the error codes:
+	>> they are a representation to the error message - like a bridge/variable/reference;
+	%% the zero 0 code tells the compiler we're done - there is no any error;
+		## the main function retunrs it so that tells the compiler that is the end so stop here and build the exe
+
 
 
 
@@ -35,37 +53,46 @@ Knowing the version of current compiler:
 >> the "code tracing" means tracing the code line by line and actting like a compiler (analysis for youself) :D;
 	pass over the code line by line && execute it - desciding what the compiler is going to do;
 >> the "<<" merges the commands in ONE command as an ARGU for the used method;
->> the "endl" && "\n" are same;
->> the "//" && "/**/" are same;
+>> the "endl" && "\n" are same and they are both tells the command to print new line in case we use command mehods like cout/cin;
+>> the "//" && "/**/" are same and they are both used to comment;
+
 
 
 
 
 =====================================
-===== 04 the Data types && Vars ===== && "the ConsoleReadingWrite";
+===== 04 the data types && vars ===== && "the command methods and escape characters";
 =====================================
-Is the data the new oil of the Digital Economy?
->> the data type - We vs Programming:
-	## 52           for us it is a "number" && for C++ is an "int";
-	## 12.0         for us it is a "number" && for C++ is a "double"/"float";
-	## 'z'          for us it is a "letter" && for C++ is a "char";
-	## "computer"   for us it is a "word" && for C++ is a "string" (Sequence of characters);
-	## Male\Female? for us it is a "status" of 2 things && for C++ is a "Bool";
->> the "computer memory RAM":
-	>> the var/box in RAM has 01 Address location 02 Type 03 name 04 value;
->> the data type has "min" and "max" values to store:
+>> is data the new oil of the digital economy?
+   ## [personal info and your sharing/images/videos/connections/interactions];
+&& in CPP the data type has "min" and "max" values to store:
 	>> If we tried bigger value => overflow;
 	>> If we tried lower value => underflow;
+the data type - we vs programming:
+	## 52           ("number" & "int");
+	## 12.0         ("number" & "double"/"float");
+	## 'z'          ("letter" & "char");
+	## 'computer'   ("word" & "string - sequence of characters");
+	## male\female? ("status of 2 things" & "Bool");
+the "computer memory RAM":
+	>> it is like a box (variable) that each one has: 
+	01 address location (assigned automatically) 02 short name 03 type 04 value;
 
 
 
 the vars:
 =========
-01 the "Declaration":
-	## int age "Un-initialized: (Garbage value)";
-02 the "Definition": 
-	>> the details of implementation (stores in memory);
+>> the var declared & defined & initialized; 
+
+01 the "declaration":
+	>> it is the metadata of announcing new var at the app/memory;
+	&& the variable get declared only once & we can't re-declare it latter;
+	## int age;
+	   "it is un-initialized (default initialization - garbage with premetives)";
+02 the "definition":
+	>> it is the details of implementation (stores in memory);
 03 the "Initialization":
+	>> it is the declaration and the implementation both together;
 	01 the "C-Style initialization" - "the popular":
 		## int age = 50 ;
 	02 the "Constructor initialization":
@@ -74,165 +101,195 @@ the vars:
 		## int age { 50 };
 
 the "constant" vars:
-	>> they are initialized directly in one statement;
-	&& they are used to disallow mutation && to clear intentions;
+	>> they are initialized directly in one statement - we can't declare and then define;
+	&& they are used to 01 disallow mutation && 02 clear intentions;
+	&& they are named either Capital or UPPERCASE - depend on value which is either (computed || static/fact);
 
 
-the "cout <<" && "cin >>"  methods:
-===================================
-they are used to [writeOutput from / readInput into] the console;
-	## cin >> A_Declared_VAR "the compiler FREEZES here .. waits us";
 
->> the "cin" with: 
-	>> with "multi input":
-		## cin >> A_Declared_VAR1 >> A_Declared_VAR2 ..;
-	>> with "multi spaces";
-		.. "two ways based on the datatype - first is usually used";
-		01 getline(cin, name1) 		// if we used the data type string name1 which detects the size automatically;
-		02 cin.getline(name2, sz)  // if we used the data type char name2[50];
+the command methods  ("cout <<" && "cin >>"):
+=============================================
+>> they are both command mehtods allows us to interact with the command; 
+
+01 the "cout";
+02 the "cin":
+	~~ "the compiler FREEZES here .. waits us";
+	>> with "multy inputs":
+		## cin >> A_Declared_VAR1 >> A_Declared_VAR2...;
+	>> with "multy spaces";
+		~~ "there are two ways based on the datatype - first is usually used";
+		01 getline(cin, name1):
+			~~ if we used the "modern constructor data type string" which detects the size automatically;
+			## string s1;
+		02 cin.getline(name2, sz)
+			~~ if we used the primitive data type like:
+			## char name2[50];
+
 
 
 the Escape  Characters:
 =======================
->> they are start with \:
-	>> \n = new line;
-	>> \t = tab;
-	>> \0 = null;
-	>> \” = “;
+>> they are start with "\":
+	%% "\n" = new line;
+	%% "\t" = tab;
+	%% "\0" = null;
+	%% "\”" = “;
 
 
 
 
 
 ===================================================
-===== 05 the Operators [Unary,Binary,Ternary] =====
+===== 05 the operators [Unary,Binary,Ternary] =====
 ===================================================
 the "operand":
-	>> it is the value that operator will apply on [x, y, 1, 2,];
-the "expression":
-	>> it computes && produces a value;
-	&& it can be a part of a statement;
-	## int y = x+2;
-the "statement":
+	>> it is the value that the operator will apply on [x, y, 1, 2,];
+the "statement" && the "expression statement":
 	>> it performs an action && doesn't produce a value;
-   && it ends with the "statement terminator" which is "the semicolon";
-	## int x = 5;
+   && it ends with the "statement terminator - the semicolon" && they are:
+	01 the "labeled" statements;
+		## [label];
+	02 the "expression" statements;
+		>> it is an expression followed by ";" - most of statements are expression;
+		## std::cout << n;
+	03 the "compound" statements;
+		>> it is a block groups a sequence of statements into a single statement;
+	04 the "selection" statements: 
+		## [if, switch];
+	05 the "iteration" statements;
+		## [while, do while, for, and range for]
+	06 the "jump" statements;
+		## [break, continue,; return, goto] 
+	07 the "declaration" statements;
+	   >> a declaration statement introduces one or more identifiers into a block.
+		## int n;
+	08 the "try" blocks;
+	09 the "atomic" and "synchronized" blocks;
 
 
 
-the Precedence && Associativity && Order of evaluation:
+the precedence && associativity && order of evaluation:
 -------------------------------------------------------
-the "Precedence":
-	>> the order of operations (NOT evaluation) in expressions that contain more than one operator;
-	>> We can use parentheses to force order / resolve ambiguity;
-	>> Find some deepest parentheses, compute its expression: and so on till no parentheses
+the "precedence": 
+	>> it is the order of operations in expressions that contain more than one operator:
+		## the unary before ternary;
+		## the parentheses force the order;
+	~~ "the compound operators are all of the same precednce as (*= === -=) depend on the associative type";
+the "associativity":
+	>> it is the way of grouping the operator of the same priority "into one executable expression",
+	   either from left to right ("ltr") or from right to left ("rtl");
+		## 1 + 2 + 3 ==> (1+2) + 3 ==> (3+3) ==> 6;
+		## 1 + 2 + 3 ==> 1 + (2+3) ==> (1+5) ==> 6;
+	01 the left-to-right associativity: "most operators";
+	02 the right-to-left associativity: 
+		## the expressions of "assignments" as the rhs evaluated beofre the lhs;
+the "order of evaluation":
+	>> it is the way of evaluate "an executable expression" either executes the lhs first or the rhs first and so on;
 
-the "Associativity-LR":
-	-- Grouping the operator of the same priority either from Left or from Right
-		After (evaluate operands/subexpressions);
-	-- Left-to-right associativity Grouping from left to right:
-		[Arithmetic operators, and the comma operator];
-	-- Right-to-Left associativity (Grouping from right to left): 
-		[Assignment, and the compound operators];
-	## The main expression (A - B - C):
-	.. Left to right associativity (A - B) - C ==> Let A/B/C be a subexpression to be evaluated independently;
-	.. "Compiler Evaluation: there are 6 ways to evaluate them [ABC, ACB, BAC, BCA, CAB, CBA]";
-
--the Undefined behavior until C++17:
+the undefined behavior until C++17:
 	## cout << i << " " << i++;
-	.. SEARCH_ON "Undefined, Unspecified, and implementation-defined behavior";
-	.. "Order of evaluation - side-effect (a change in state from one expression)";
-
-
-the Short-Curcuit Evaluation:
------------------------------
--It evaluates till a point that stopes on and doesn't evaluate anything coming;
---It Discards what can be discard;
+	~~ "undefined, unspecified, and implementation-defined behavior";
+	~~ "order of evaluation - side-effect (a change in state from one expression)";
 
 
 
-
-
-the Operators  Types:
+the Operators  types:
 =====================
-01 the "unary operators" which require one operand:
-	## [++, --, !];
-02 the "binary operators" which require two operands:
-	## the "Arithmitic"/"traditional" operators: [+, -, /, *, %];
-	## the "Relational"/"Comparison" operators: [<, >, <=, >=, ==, !=];
-	## the "Logical" operators: [!, ||, &&];
-	## the "Bitwise" operators: [&, |, <<, >>, ~, ^];
-	## the "Assignment" && "Compound assignment with binary" operators: [=, =BinaryOperator];
-	## the "Comma" operator: (,) :DD;
-03 the "ternary" operators which require three operands:
-	## the "Conditional" operator: (?:);
+01 the "unary operators": 
+	>> which require one operand:
+	## [+, -, ++, --, !];
+02 the "binary operators": 
+	>> which require two operands:
+	## the "arithmitic"/"traditional" operators: [+, -, /, *, %];
+	## the "relational"/"comparison" operators: [<, >, <=, >=, ==, !=];
+	## the "logical" operators: [!, ||, &&];
+	## the "bitwise" operators: [&, |, <<, >>, ~, ^];
+	## the "assignment" && "Compound assignment with (arithmetic or bitwise)" operators: [=, =()];
+	## the "comma" operator: (,);
+03 the "ternary" operators: 
+	>> which require three operands:
+	## the "conditional" operator: (?:);
 
 
 
-the [Prefix, Postfix] Unary Operators [++, --]:
-===============================================
->> the prefix(before):
-	>> it inc\dec firstly && return the new value;
-!! BEcarful "bad behavior - ends with undefined IN OLD VERSIONS":
-	## a++ + ++a;
-	## a-- + --a;
-	## a + ++a;
-		"as here is no defined order if X evaluated first or Y";
-		"A side-effect: a change in state from one expression ISN'T ALLOWED";
->> it is better:
-	>> to use prefix as default;
-	>> to use postfix whenever we want to copy a variable;
-
-
-
-the Arithmetic Operators:
+111 the unary  operators:
 =========================
-the division && modular operators:
-	-If one operand is double the result will be of double as default;
-	-Dividing by 10 removes the last number in int type (as last num will be a fractional SO we'll get re);
-	-Moduling by 10 gives us the last int;
-	-Moduling by 2 tells us the if the number is odd or even;
-	-Moduling remidiner r = n % k; r must be < k;
+
+the unary plus/minus operators [+, -] "NOT IN CPP xD":
+------------------------------------------------------
+>> they are both converts the operand to a number; 
+&& its "association are RTL";
+
+
+the prefix/postfix increment/decrement [++, --]:
+------------------------------------------------
+>> the prefix(before):
+	>> it inc\dec firstly && then return the new value at the same expression;
+	&& its "association are RTL";
+>> the bad practices which ends with "undefined IN OLD VERSIONS - change in state at the same expression":
+	!! a++ + ++a;
+	!! a-- + --a;
+	!! a + ++a;
+		"as here is no defined order if X evaluated first or Y of the smallest executable expression";
+		"a side-effect: a change in state from one expression ISN'T ALLOWED IN OLD VERSIONS";
+ 	~~ it is better to use prefix as default && postfix whenever we want to copy a variable;
 
 
 
-the [Assignment, Comma] Binary Operators:
-=========================================
+222 the binary operators:
+=========================
+
+the arithmetic operators:
+-------------------------
+the division && modular operators ["/", "%"]:
+	>> if one operand is double then the type of result of the expression will be of double as default;
+	## the dividing by 10 removes the last int;
+	## the moduling by 10 gives us the last int;
+	## the moduling by 2 tells us if the number is odd or even;
+	## the moduling reminder r = n % k; r must be < k;
+	   ## the "12-hour Clock Cycle";
+we can convert double to integer:
+	01 by casting them usign the CStyle like:
+		## (int) n1;
+	02 by casting them using the static_cast of CPP style:
+		## static_cast<int>(n1);
+		~~ "It’s safer than a C-style cast as it performs compile-time type checking";
+	++ [dynamic_cast, const_cast, reinterpret_cast, ];
+
+
+
+the [assignment & comma] operators: "as in precednce and evaluation up ^^"
+-----------------------------------
 the assignment operator (=):
 	## int x = 2 * y + 1 ;
-	-- the Lhs = the Rhs (Left hand side = Right hand side);
-	-- the Rhs is an "expression" ends with the statement terminator (;);
-	&& the Rhs is evaluated firstly and then assigned to the Lhs;
-	&& the Rhs have to be the same type of Lhs otherwise (A CError);
-the comma operator (,):
+	   the Lhs = the Rhs (Left hand side = Right hand side);
+	   the Rhs is an "expression" ends with the statement terminator ";";
+	   the Rhs is evaluated firstly and then assigned to the Lhs;
+	   the Rhs have to be the same type of Lhs otherwise (A CError);
+the comma operator ",":
    ## cout << (10, x=1, y=2, 40) ==> 40;
 	>> "which evaluates from left to right";
-	&& "return the last after-comma result";
+	&& "returns the last after-comma result";
 
 
-
-
-the Logical Binary Operators:
-=============================
->> they are corrisponding to our logic human logic;
---The (&&) operator sutisfies all of them:
-    -- (Only 1 case is True: when all conditions are true);
-    -- Its precedence is heigher than the (||) operator;
---The (||) operator sutisfies only one of them (Only 1 case is False: when all conditions are false);
+the relational operators:
+-------------------------
+>> the C++ has an approximate representation for real values so we have to never compare directly;
+&& never compare double for equality directly
 
 
 
 
 
-=================================
-===== 06 the Selection (If) ===== "the program flow";
-=================================
->> it is the [ If , else if , else ] statements: ;
+=======================================
+===== 06 the selection statements ===== "the program flow";
+=======================================
+>> it is the [ If , else if , else , and switch ] statements;
 
-the Syntax in C++:
+the syntax in C++:
 	>> if (condition) to "in case the body/to is only one statement";
 	|| if (condition) { body } "in case the body is a block/multiline of code;
-the Syntax in C++17:
+the syntax in C++17:
 	>> if (initialization ; condition) to;
 	|| if (initialization ; condition) { body };
 		"the initializer is seen only inside the if else statements NOT SEEN inside the else statement;
@@ -241,7 +298,7 @@ the Syntax in C++17:
 
 
 =========================
-===== 07 the  Loops =====
+===== 07 the  loops =====
 =========================
 >> the loop means "circular";
 && the loop in our context is a way to command the computer to "REPEAT" the same operations till we ask to STOP;
